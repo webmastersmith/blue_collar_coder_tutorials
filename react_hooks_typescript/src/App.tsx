@@ -2,10 +2,14 @@ import { UseStateComponent } from 'UseState'
 import { UseEffectComponent } from 'UseEffect'
 import { UseContextComponent } from 'UseContext'
 import { UseReducerComponent } from 'UseReducer'
+import { UseRefComponent } from 'UseRef'
 
 function App() {
   return (
     <div>
+      <h1>UseRef</h1>
+      <UseRefComponent />
+
       <h1>UseReducer</h1>
       <UseReducerComponent />
 

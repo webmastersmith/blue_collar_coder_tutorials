@@ -1,4 +1,4 @@
-import { memo, useState, useEffect, useCallback, useMemo } from 'react'
+import { memo, useState } from 'react'
 
 export const UseEffectComponent = memo(() => {
   const [val, valSet] = useState(1)

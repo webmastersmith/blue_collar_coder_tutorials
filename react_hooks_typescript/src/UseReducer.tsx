@@ -1,11 +1,4 @@
-import {
-  memo,
-  useState,
-  useEffect,
-  useCallback,
-  useMemo,
-  useReducer,
-} from 'react'
+import { memo, useReducer } from 'react'
 
 const initialState = {
   counter: 100,
