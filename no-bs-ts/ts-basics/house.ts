@@ -5,10 +5,8 @@ interface House {
   planets: string | string[]
 }
 
-interface HouseWithID {
+interface HouseWithID extends House {
   id: string
-  name: string
-  planets: string | string[]
 }
 
 function findHouses(houses: string): HouseWithID[]
@@ -41,3 +39,15 @@ console.log(
   findHouses(JSON.stringify(houses), ({ name }) => name === 'Atreides')
 )
 console.log(findHouses(houses, ({ name }) => name === 'Harkonnen'))
+
+console.log(
+  findHouses(houses, ({ planets }) => {
+    const house = 'Salusa Secundus'
+    if (Array.isArray(planets)) {
+      for (let planet of planets) {
+        if (planet.includes(house)) return true
+      }
+    }
+    return planets === house
+  })
+)
