@@ -3,10 +3,14 @@ import { UseEffectComponent } from 'UseEffect'
 import { UseContextComponent } from 'UseContext'
 import { UseReducerComponent } from 'UseReducer'
 import { UseRefComponent } from 'UseRef'
+import { UseCustomHookComponent } from 'UseCustomHook'
 
 function App() {
   return (
     <div>
+      <h1>UseCustomHook</h1>
+      <UseCustomHookComponent />
+
       <h1>UseRef</h1>
       <UseRefComponent />
 
