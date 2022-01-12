@@ -1,4 +1,4 @@
-import houses from './house-info.json'
+import houses from './test-house-info.json'
 
 interface House {
   name: string
