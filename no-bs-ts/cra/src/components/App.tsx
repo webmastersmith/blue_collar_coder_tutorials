@@ -6,7 +6,7 @@ import { addTodo, removeTodo, Todo } from 'redux/todoSlice'
 const Heading: FC<{ title: string }> = ({ title }) => <h2>{title}</h2>
 
 function App() {
-  const todos = useSelector((state: RootState) => state.todos.todos)
+  const todos = useSelector((state: RootState) => state.todosReducer.todos)
   const dispatch = useDispatch()
 
   const newTodoRef = useRef<HTMLInputElement>(null)
