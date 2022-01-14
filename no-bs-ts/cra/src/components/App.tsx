@@ -6,7 +6,6 @@ import React, {
   useReducer,
   useRef,
 } from 'react'
-import User from 'data.json'
 
 const Heading: FC<{ title: string }> = ({ title }) => <h2>{title}</h2>
 const Box: React.FunctionComponent = ({ children }) => <div>{children}</div>
@@ -23,13 +22,9 @@ const List: FC<{
   </ul>
 )
 
-interface Payload {
-  name: string
-}
-
 const items = ['hello', 'goodby', 'see ya!']
 function App() {
-  const [payload, setPayload] = useState<Payload[] | null>(null)
+  // const [payload, setPayload] = useState<Payload[] | null>(null)
 
   useEffect(() => {
     // fetch('https://jsonplaceholder.typicode.com/users?id=5')
