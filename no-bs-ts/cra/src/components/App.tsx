@@ -24,7 +24,7 @@ const List: FC<{
 
 const items = ['hello', 'goodby', 'see ya!']
 function App() {
-  // const [payload, setPayload] = useState<Payload[] | null>(null)
+  const [value, setValue] = useState(0)
 
   useEffect(() => {
     // fetch('https://jsonplaceholder.typicode.com/users?id=5')
@@ -33,6 +33,45 @@ function App() {
     //     setPayload(data)
     //   })
   }, [])
+
+  //Button
+  const Button: FC<
+    React.DetailedHTMLProps<
+      React.ButtonHTMLAttributes<HTMLButtonElement>,
+      HTMLButtonElement
+    > & {
+      //extend types.
+      title?: string
+    }
+  > = ({ title, children, style, ...rest }) => {
+    return (
+      <button
+        style={{
+          backgroundColor: 'red',
+          color: 'white',
+          ...style,
+        }}
+        {...rest}
+      >
+        {title ?? children}
+      </button>
+    )
+  }
+
+  const Incrementer: FC<{
+    value: number
+    setValue: React.Dispatch<React.SetStateAction<number>>
+  }> = ({ value, setValue }) => {
+    return (
+      <Button
+        style={{ color: 'blue' }}
+        // title="heeper button keeper!"
+        onClick={() => setValue((v) => v + 1)}
+      >
+        Add - {value}
+      </Button>
+    )
+  }
 
   type ActionType =
     | { type: 'ADD'; text: string }
@@ -83,13 +122,14 @@ function App() {
       <Heading title="Hello Bryon" />
       <Box>Hello there</Box>
       <List items={items} onClick={listAlert} />
+      <Incrementer value={value} setValue={setValue} />
 
       <Heading title="Todos" />
       {todos.map((todo: Todo) => {
         return (
           <div key={todo?.id}>
             {todo?.text}
-            <button
+            <Button
               onClick={() =>
                 dispatch({
                   type: 'REMOVE',
@@ -98,13 +138,13 @@ function App() {
               }
             >
               Remove
-            </button>
+            </Button>
           </div>
         )
       })}
       <div>
         <input type="text" ref={newTodoRef} />
-        <button onClick={addTodo}>Add Todo</button>
+        <Button onClick={addTodo}>Add Todo</Button>
       </div>
     </div>
   )
